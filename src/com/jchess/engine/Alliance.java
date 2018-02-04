@@ -1,5 +1,6 @@
 package com.jchess.engine;
 
-public class Alliance {
-
+public enum Alliance {
+	WHITE,
+	BLACK
 }

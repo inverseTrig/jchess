@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
-import com.jchess.engine.piece.Piece;
+import com.jchess.engine.pieces.Piece;
 
 public abstract class Tile {
 	
@@ -16,7 +16,7 @@ public abstract class Tile {
 		
 		final Map<Integer, EmptyTile> emptyTileMap = new HashMap<>();
 		
-		for (int i = 0; i < 64; i ++) {
+		for (int i = 0; i < BoardUtils.NUM_TILES; i ++) {
 			emptyTileMap.put(i, new EmptyTile(i));
 		}
 		
@@ -27,7 +27,7 @@ public abstract class Tile {
 		return piece != null ? new OccupiedTile(tileCoordinate, piece) : EMPTY_TILES_CACHE.get(tileCoordinate);
 	}
 	
-	private Tile (int tileCoordinate) {
+	private Tile (final int tileCoordinate) {
 		this.tileCoordinate = tileCoordinate;
 	}
 	
@@ -57,7 +57,7 @@ public abstract class Tile {
 		
 		private final Piece pieceOnTile;
 		
-		private OccupiedTile(final int tileCoordinate, Piece pieceOnTile) {
+		private OccupiedTile(final int tileCoordinate, final Piece pieceOnTile) {
 			super(tileCoordinate);
 			this.pieceOnTile = pieceOnTile;
 		}
